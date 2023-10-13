@@ -1,0 +1,72 @@
+Projet Smart-Road:
+
+---------------------------------------------------------------------------------------------------
+Règles heuristiques:
+
+1 . Initialisation de la simulation : Vous commencez par initialiser la simulation en plaçant des véhicules sur les voies avec des 
+    itinéraires prédéfinis.
+
+2 . Modélisation du mouvement des véhicules : Vous pouvez modéliser le mouvement des véhicules en utilisant des équations de physique 
+    simples, telles que vitesse = distance / temps. Vous devrez calculer le temps que prend chaque véhicule pour traverser l'intersection 
+    en fonction de sa vitesse, de sa distance et des autres véhicules présents.
+
+3 . Implémentation des règles de sécurité : Vous devez mettre en place des règles de sécurité pour que les véhicules maintiennent une 
+    distance de sécurité par rapport aux autres. Si un véhicule ralentit ou s'arrête en raison de la proximité d'un autre véhicule, 
+    les autres véhicules derrière doivent réagir en conséquence.
+
+4 . Gestion des intersections : Vous devez gérer le passage des véhicules à travers l'intersection en fonction de leurs itinéraires 
+    prédéfinis. Les véhicules sur la voie de droite peuvent tourner à droite sans interruption, ceux sur la voie du milieu peuvent passer 
+    tout droit, et ceux sur la voie de gauche peuvent tourner à gauche.
+
+5 . Simulation en boucle : Vous exécutez la simulation en boucle, en mettant à jour la position, la vitesse et le temps de chaque véhicule 
+    à chaque itération. Vous pouvez utiliser une boucle de simulation pour faire avancer le temps.
+
+6 . Visualisation (facultatif) : Si l'exercice nécessite une représentation graphique, vous pouvez utiliser la bibliothèque SDL2 avec Python 
+    pour créer une interface graphique qui montre le mouvement des véhicules à travers l'intersection.
+
+7 . Évaluation et ajustements : Vous pouvez évaluer la performance de votre simulation en termes de sécurité et d'efficacité. 
+    Si des collisions se produisent ou si la circulation est bloquée, vous devrez peut-être ajuster vos règles heuristiques pour améliorer 
+    le fonctionnement de la simulation.
+
+---------------------------------------------------------------------------------------------------
+Diagramme de class:
+
+-------------------------------------
+|            Véhicule               |
+-------------------------------------
+| - vitesse : float                 |
+| - distance : float                |
+| - route : str (itinéraire)        |
+-------------------------------------
+| + __init__(vitesse, distance,     |
+|            route)                 |
+| + move(time)                      |
+| + check_collision(other_vehicle)  |
+| + maintain_safe_distance(...)     |
+-------------------------------------
+
+
+--------------------------------------
+|           Intersection             |
+--------------------------------------
+| - vehicles : List[Véhicule]        |
+| - routes : List[str] (itinéraires) |
+| - ... (autres attributs)           |
+-------------------------------------
+| + __init__(routes, ...)            |
+| + add_vehicle(vehicle)             |
+| + remove_vehicle(vehicle)          |
+| + update_state(...)                |
+| + manage_traffic(...)              |
+| + ... (autres méthodes)            |
+-------------------------------------
+
+---------------------------------------------------------------------------------------------------
+Dépendances:
+ - Pygame: visualisation graphique. pygame utilise SDL2
+    "pip install pygame"
+
+"pip freeze > requirements.txt" créer le fichier de dépendances
+"pip install -r requirements.txt" Installe les dépendances à partir de requirements.txt
+
+---------------------------------------------------------------------------------------------------
